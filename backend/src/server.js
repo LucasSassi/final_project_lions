@@ -5,18 +5,19 @@ import connect from "./config/db.js";
 
 dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 
-const PORT = 2323;
+const PORT = process.env.PORT || 2323;
 
 (async () => {
   try {
-    await connect(
-      process.env.MONGODB_URI
-    );
-    app.listen(PORT, () =>
-      console.log(`API ouvindo em http://localhost:${PORT}`)
-    );
+    await connect(process.env.MONGODB_URI);
+    console.log("✅ MongoDB conectado com sucesso");
+    
+    app.listen(PORT, () => {
+      console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+      console.log(`📊 Health check: http://localhost:${PORT}/health`);
+    });
   } catch (error) {
-    console.error("Erro ao conectar no banco ou iniciar o servidor", error);
+    console.error("❌ Erro ao iniciar o servidor:", error);
     process.exit(1);
   }
 })();

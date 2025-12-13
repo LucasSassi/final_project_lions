@@ -4,26 +4,38 @@ const UserSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: [true, "Nome é obrigatório"],
+      trim: true,
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "E-mail é obrigatório"],
       unique: true,
       lowercase: true,
+      trim: true,
     },
     password: {
       type: String,
-      required: true,
+      required: [true, "Senha é obrigatória"],
+      select: false, // Não retorna senha por padrão nas queries
     },
     roles: {
-      type: [String],
+      type: String,
       enum: ["ADMIN", "USER"],
-      default: ["USER"],
+      default: "USER",
     },
   },
   { timestamps: true }
 );
+
+// Não retorna senha e __v nas respostas JSON
+UserSchema.set('toJSON', {
+  transform: (doc, ret) => {
+    delete ret.password;
+    delete ret.__v;
+    return ret;
+  }
+});
 
 const MUser = mongoose.model("User", UserSchema);
 

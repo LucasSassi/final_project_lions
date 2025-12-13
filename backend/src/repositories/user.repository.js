@@ -1,25 +1,30 @@
 import MUser from "../models/user.model.js";
 
 export default {
-  create(data) {
+  async create(data) {
     return MUser.create(data);
   },
-  findAll() {
-    return MUser.find();
+
+  async findAll() {
+    return MUser.find().select("-password");
   },
-  findById(id) {
-    return MUser.findById(id);
+
+  async findById(id) {
+    return MUser.findById(id).select("-password");
   },
-  updateById(id, data) {
+
+  async updateById(id, data) {
     return MUser.findByIdAndUpdate(id, data, {
       new: true,
       runValidators: true,
-    });
+    }).select("-password");
   },
-  deleteById(id) {
+
+  async deleteById(id) {
     return MUser.findByIdAndDelete(id);
   },
-  findByEmail(email) {
-    return MUser.findOne({ email });
+
+  async findByEmail(email) {
+    return MUser.findOne({ email }).select("+password"); // Inclui senha para login
   },
 };

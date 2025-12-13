@@ -54,12 +54,4 @@ export default {
       next(error);
     }
   },
-
-  async hello(req, res, next) {
-    try {
-      res.status(200).json({ message: `Seu ID é ${req.user.userId}` });
-    } catch (error) {
-      next(error);
-    }
-  },
 };

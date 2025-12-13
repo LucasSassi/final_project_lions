@@ -6,10 +6,10 @@ const router = Router();
 
 router.post("/users", userController.create);
 router.get("/users", authMiddleware(), requireRole(Role.ADMIN), userController.list);
-router.get("/users/hello", authMiddleware(), userController.hello);
 router.get("/users/:id", ensureValidId, userController.get);
 router.put("/users/:id", ensureValidId, userController.update);
 router.delete("/users/:id", authMiddleware(), requireRole(Role.ADMIN), userController.remove);
 router.post("/users/login", userController.login);
+
 
 export default router;
