@@ -24,7 +24,7 @@ export default {
       name: data.name.trim(),
       email: data.email.trim().toLowerCase(),
       password: senhaHash,
-      roles: data.roles.trim(),
+      roles: data.roles ? data.roles.trim() : "USER",
     });
   },
 
