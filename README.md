@@ -423,4 +423,4 @@ export default function errorMiddleware(error, req, res, next) {
 
 ## 📄 Licença
 
-ISC License - Este projeto foi desenvolvido para fins educacionais.
+ISC License - Este projeto foi desenvolvido para fins educacionais. 
