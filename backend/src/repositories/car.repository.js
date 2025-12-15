@@ -2,7 +2,10 @@ import MCar from "../models/car.model.js";
 
 export default {
   async create(data) {
-    return MCar.create(data);
+    const car = await MCar.create(data);
+    return MCar.findById(car._id)
+      .populate("createdBy", "name email phone")
+      .populate("buyer", "name email phone");
   },
 
   async findById(id) {
