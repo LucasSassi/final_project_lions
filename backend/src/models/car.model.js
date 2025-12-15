@@ -37,6 +37,11 @@ const CarSchema = new mongoose.Schema(
       required: [true, "Quilometragem é obrigatória"],
       min: [0, "Quilometragem não pode ser negativa"],
     },
+    sellerPhone: {
+      type: String,
+      required: [true, "Telefone do vendedor é obrigatório"],
+      trim: true,
+    },
     available: {
       type: Boolean,
       default: true,

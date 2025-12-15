@@ -1,11 +1,12 @@
 import repo from "../repositories/car.repository.js";
 import createError from "../utils/app-error.js";
 
-function ensureValidCarPayload({ brand, model, year, price, color, mileage }) {
+function ensureValidCarPayload({ brand, model, year, price, color, mileage, sellerPhone }) {
   // Campos obrigatórios
   if (!brand?.trim()) throw createError("Marca é obrigatória.", 400);
   if (!model?.trim()) throw createError("Modelo é obrigatório.", 400);
   if (!color?.trim()) throw createError("Cor é obrigatória.", 400);
+  if (!sellerPhone?.trim()) throw createError("Telefone do vendedor é obrigatório.", 400);
   
   // Validação de ano
   if (!year) throw createError("Ano é obrigatório.", 400);
@@ -39,6 +40,7 @@ export default {
       price: data.price,
       color: data.color.trim(),
       mileage: data.mileage,
+      sellerPhone: data.sellerPhone.trim(),
       description: data.description?.trim() || "",
       available: data.available !== undefined ? data.available : true,
       createdBy: userId,

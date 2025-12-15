@@ -84,6 +84,7 @@ carForm.addEventListener('submit', async (e) => {
         year: parseInt(document.getElementById('year').value),
         color: document.getElementById('color').value,
         mileage: parseInt(document.getElementById('mileage').value),
+        sellerPhone: document.getElementById('sellerPhone').value,
         price: parseFloat(document.getElementById('price').value),
         description: document.getElementById('description').value
     };
@@ -224,11 +225,6 @@ function displayCars(cars) {
         const carId = car._id || car.id;
         console.log('ID do carro:', carId, car);
         
-        // Informações do vendedor
-        const seller = car.createdBy || {};
-        const sellerPhone = seller.phone ? `<p><strong>Contato:</strong> ${seller.phone}</p>` : '';
-        const sellerName = seller.name ? `<p><strong>Vendedor:</strong> ${seller.name}</p>` : '';
-        
         return `
         <div class="car-card">
             <h3>${car.brand} ${car.model}</h3>
@@ -237,8 +233,7 @@ function displayCars(cars) {
                 <p><strong>Cor:</strong> ${car.color}</p>
                 <p><strong>Quilometragem:</strong> ${formatNumber(car.mileage)} km</p>
                 <p><strong>Descrição:</strong> ${car.description || 'Sem descrição'}</p>
-                ${sellerName}
-                ${sellerPhone}
+                <p><strong>Contato:</strong> ${car.sellerPhone}</p>
             </div>
             <div class="car-price">R$ ${formatPrice(car.price)}</div>
             <div class="car-actions">
@@ -274,6 +269,7 @@ async function editCar(carId) {
             document.getElementById('year').value = car.year;
             document.getElementById('color').value = car.color;
             document.getElementById('mileage').value = car.mileage;
+            document.getElementById('sellerPhone').value = car.sellerPhone;
             document.getElementById('price').value = car.price;
             document.getElementById('description').value = car.description || '';
             
