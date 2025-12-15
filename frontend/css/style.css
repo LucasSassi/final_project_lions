@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a0033 0%, #0d0d0d 100%);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Login Page Styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-box, .register-box {
+    background: rgba(80, 0, 160, 0.2);
+    border: 2px solid #7d00ff;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(125, 0, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.login-box h1, .register-box h1 {
+    text-align: center;
+    color: #bb86fc;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.login-box h2, .register-box h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #bb86fc;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #5000a0;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #bb86fc;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-login, .btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #7d00ff 0%, #bb86fc 100%);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-login:hover, .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(125, 0, 255, 0.4);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.register-link a {
+    color: #bb86fc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Error/Success Messages */
+.error-message, .success-message {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.error-message {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid #ff0000;
+    color: #ff6b6b;
+}
+
+.success-message {
+    background: rgba(0, 255, 0, 0.2);
+    border: 1px solid #00ff00;
+    color: #69ff69;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #7d00ff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    color: #bb86fc;
+    font-size: 1.8rem;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#userName {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.btn-logout {
+    padding: 8px 20px;
+    background: rgba(255, 0, 0, 0.3);
+    border: 1px solid #ff0000;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+/* Marketplace Styles */
+.marketplace-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.btn-add {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #7d00ff 0%, #bb86fc 100%);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(125, 0, 255, 0.4);
+}
+
+/* Cars Grid */
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.car-card {
+    background: rgba(80, 0, 160, 0.2);
+    border: 2px solid #7d00ff;
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(125, 0, 255, 0.4);
+}
+
+.car-card h3 {
+    color: #bb86fc;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.car-info {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+}
+
+.car-info p {
+    margin: 5px 0;
+}
+
+.car-price {
+    color: #00ff88;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.car-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-edit, .btn-delete {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    background: rgba(125, 0, 255, 0.3);
+    border: 1px solid #7d00ff;
+    color: #bb86fc;
+}
+
+.btn-edit:hover {
+    background: rgba(125, 0, 255, 0.5);
+}
+
+.btn-delete {
+    background: rgba(255, 0, 0, 0.3);
+    border: 1px solid #ff0000;
+    color: #ff6b6b;
+}
+
+.btn-delete:hover {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: rgba(20, 0, 40, 0.95);
+    border: 2px solid #7d00ff;
+    border-radius: 20px;
+    margin: 5% auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    color: #bb86fc;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ffffff;
+}
+
+.modal-content h2 {
+    color: #bb86fc;
+    margin-bottom: 30px;
+}
+
+.loading {
+    text-align: center;
+    color: #bb86fc;
+    font-size: 1.2rem;
+    padding: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cars-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .login-box, .register-box {
+        padding: 30px 20px;
+    }
+    
+    .navbar h1 {
+        font-size: 1.4rem;
+    }
+    
+    .nav-right {
+        gap: 10px;
+    }
+}

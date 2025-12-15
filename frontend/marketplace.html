@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace de Carros</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1>🚗 Marketplace</h1>
+            <div class="nav-right">
+                <span id="userName">Usuário</span>
+                <button id="logoutBtn" class="btn-logout">Sair</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="marketplace-container">
+        <div class="controls">
+            <button id="addCarBtn" class="btn-add">+ Adicionar Carro</button>
+        </div>
+        
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+        
+        <div id="carModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Adicionar Carro</h2>
+                
+                <form id="carForm">
+                    <div class="form-group">
+                        <label for="brand">Marca</label>
+                        <input type="text" id="brand" name="brand" required placeholder="Ex: Toyota">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="model">Modelo</label>
+                        <input type="text" id="model" name="model" required placeholder="Ex: Corolla">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="year">Ano</label>
+                        <input type="number" id="year" name="year" required placeholder="Ex: 2022">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="price">Preço (R$)</label>
+                        <input type="number" id="price" name="price" required placeholder="Ex: 80000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea id="description" name="description" rows="3" placeholder="Descrição do carro"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Salvar</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="cars-grid" id="carsGrid">
+            <div class="loading">Carregando carros...</div>
+        </div>
+    </div>
+    
+    <script src="js/marketplace.js"></script>
+</body>
+</html>

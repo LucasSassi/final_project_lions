@@ -1,0 +1,17 @@
+{
+  "name": "marketplace-frontend",
+  "version": "1.0.0",
+  "description": "Frontend do Marketplace de Carros",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "build": "echo 'Frontend estático pronto para deploy' && mkdir -p dist && cp -r *.html css js dist/"
+  },
+  "keywords": [
+    "marketplace",
+    "cars",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+
