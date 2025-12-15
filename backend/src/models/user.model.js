@@ -16,8 +16,8 @@ const UserSchema = new mongoose.Schema(
     },
     phone: {
       type: String,
+      required: [true, "Telefone é obrigatório"],
       trim: true,
-      default: "",
     },
     password: {
       type: String,

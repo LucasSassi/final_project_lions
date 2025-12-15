@@ -4,10 +4,11 @@ import createError from "../utils/app-error.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-export function ensureValidPayload({ name, email, password, roles }) {
+export function ensureValidPayload({ name, email, phone, password, roles }) {
   if (!name?.trim()) throw createError("Nome é obrigatório.", 400);
   if (!email?.trim()) throw createError("E-mail é obrigatório.", 400);
   if (!email.includes("@")) throw createError("E-mail inválido.", 400);
+  if (!phone?.trim()) throw createError("Telefone é obrigatório.", 400);
   if (!password) throw createError("Senha é obrigatória.", 400);
 }
 
@@ -23,6 +24,7 @@ export default {
     return repo.create({
       name: data.name.trim(),
       email: data.email.trim().toLowerCase(),
+      phone: data.phone.trim(),
       password: senhaHash,
       roles: data.roles ? data.roles.trim() : "USER",
     });
