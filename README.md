@@ -3,7 +3,6 @@
 > Projeto final desenvolvido para o curso avançado de programação da Lions (Dez/2025).
 
 ![Status do Projeto](https://img.shields.io/badge/Status-Pendente-brightgreen)
-![FlutterFlow](https://img.shields.io/badge/Frontend-FlutterFlow-blue) // AINDA NAO CONCLUIDO 
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-green)
 ![API](https://img.shields.io/badge/API-RESTful-orange)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-green)
